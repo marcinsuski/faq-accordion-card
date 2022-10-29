@@ -34,12 +34,16 @@ main {
 }
 
 .container {
-    width: 60%;
+    width: 800px;
     height: 60vh;
     border-radius: 20px;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
+    background-image: url("../src/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: 866px 845px;
+    background-position: 700% 75%;
 }
 
 .images {
@@ -48,39 +52,160 @@ main {
     position: relative;
 }
 
-.wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.box {
-    position: absolute;
-    left: -5.9rem;
-    top: 23vh;
-    z-index: 2;
-}
-
-.pattern {
-    position: relative;
-    top: -50%;
-    left: -60vh;
-}
-
-.woman {
-    position: relative;
-    align-self: center;
-    top: 9vh;
-    left: -15%;
-    z-index: 1;
-}
-
 .faq {
     width: 50%;
     height: 100%;
     position: relative;
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+.image_cube {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../src/illustration-box-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 3;
+    left: -49%;
+}
+
+.image_woman {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-image: url("../src/illustration-woman-online-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 20%;
+}
+
+@media (max-width: 800px) {
+    .images {
+        width: 100%;
+        position: relative;
+    }
+
+    .image_cube {
+        position: absolute;
+
+        background-image: none;
+    }
+
+    .image_woman {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url("../src/illustration-woman-online-mobile.svg");
+        background-repeat: no-repeat;
+        background-size: 270px;
+        background-position: center;
+        top: -55%;
+    }
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.wrapper-faq {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+}
+
+.accordion {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: transparent;
+    background-clip: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.accordion_item {
+    padding: 0.6rem 0 0.4rem 0;
+    margin-bottom: 0;
+    background-color: transparent
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.accordion_question.open {
+    font-weight: 700;
+}
+
+.accordion_question.open::after {
+    transform: rotate(180deg);
+}
+
+.accordion_collapse.collapse {
+    display: none;
+}
+
+.accordion_collapse.collapsing {
+}
+
+.accordion_collapse.open {
+    display: block;
+}
+
+.accordion_content {
+    flex: 1 1 auto;
+    padding: 0 0.15rem 0.5rem 0;
+    font-size: 0.75rem;
+    color: var(--textgreyishblue);
+}
+
+.accordion_question {
+    font-family: "Kumbh Sans", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.3rem 0 0.6rem 0;
+    font-size: 0.9rem;
+    color: Black;
+    background-color: transparent;
+}
+
+.accordion_question::after {
+    content: "";
+    display: block;
+    border: none;
+    width: 10px;
+    height: 10px;
+    background-image: url("../src/icon-arrow-down.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 300ms ease-in-out;
+}
+
+.accordion_question:focus,
+.accordion_question:focus-visible {
+    border: none;
+}
+
+.accordion_question:hover {
+    color: var(--textsoftred);
+    cursor: pointer;
 }
 
 .attribution {
@@ -89,6 +214,101 @@ main {
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 800px) {
+    main {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(
+            hsl(273, 75%, 66%),
+            hsl(240, 73%, 65%)
+        );
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        margin-top: 150px;
+        width: 80%;
+        height: 70vh;
+        border-radius: 20px;
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        background-image: url("../src/bg-pattern-mobile.svg");
+        background-repeat: no-repeat;
+        background-size: 260px 124px;
+        background-position: center -1%;
+    }
+
+    .images {
+        width: 78vw;
+        height: 50%;
+        position: absolute;
+    }
+
+    .faq {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+   
+    }
+
+    .wrapper-faq {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        justify: center;
+    }
+}
+
+@media (min-width: 1440px) {
+    body {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 12px;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+        position: relative;
+        display: flex;
+        width: 80%;
+        height: 80vh;
+        background-image: linear-gradient(
+            hsl(273, 75%, 66%),
+            hsl(240, 73%, 65%)
+        );
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /*
